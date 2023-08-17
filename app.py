@@ -1,5 +1,5 @@
 from datetime import datetime
-
+import socket
 from flask import Flask, render_template
 import os
 
@@ -11,7 +11,8 @@ def home():
     date = datetime.now()
     now = date.strftime("%a, %m-%d-%y %H:%M:%S UTC")
     return render_template('index.html',
-                           date = now)
+                           date = now,
+                           hostname = socket.gethostname())
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
