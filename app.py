@@ -5,14 +5,15 @@ import os
 
 app = Flask(__name__)
 
-
-@app.route('/')
-def home():
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
     date = datetime.now()
     now = date.strftime("%a, %m-%d-%y %H:%M:%S UTC")
     return render_template('index.html',
                            date = now,
-                           hostname = socket.gethostname())
+                           hostname = socket.gethostname(),
+                           path = path)
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 8080))
