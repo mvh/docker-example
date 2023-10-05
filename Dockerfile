@@ -12,8 +12,8 @@ RUN pip install -r requirements.txt
 COPY . ./
 
 #FROM gcr.io/distroless/python3
-#FROM ubuntu:latest
-FROM python:3-slim
+FROM ubuntu:latest
+#FROM python:3-slim
 
 COPY --from=builder /app /app
 
