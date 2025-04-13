@@ -1,2 +1,2 @@
 #!/bin/sh
-docker build --no-cache -t mvh/docker-example:latest .
+docker build --no-cache -t ghcr.io/mvh/docker-example:latest .

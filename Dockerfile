@@ -7,7 +7,7 @@ WORKDIR /app
 RUN apt update
 RUN apt upgrade -y
 RUN apt install -y python3
-RUN apt install -y python3.10-venv
+RUN apt install -y python3.12-venv
 COPY requirements.txt ./
 RUN python3 -m venv venv
 ENV PATH=/app/venv/bin:$PATH
@@ -21,7 +21,7 @@ FROM ubuntu:latest
 RUN apt update
 RUN apt upgrade -y
 RUN apt install -y python3
-RUN apt install -y python3.10-venv
+RUN apt install -y python3.12-venv
 #FROM python:3-slim
 
 COPY --from=builder /app /app
